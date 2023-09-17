@@ -1,0 +1,49 @@
+[gd_scene load_steps=6 format=3 uid="uid://e2vhbq4exe8a"]
+
+[ext_resource type="Texture2D" uid="uid://xvlckt2lk2a8" path="res://images/crystals_bw.png" id="1_secg8"]
+[ext_resource type="Script" path="res://scripts/cave_player.gd" id="2_0bkeb"]
+[ext_resource type="Texture2D" uid="uid://c6342ar8k7ygy" path="res://images/icon.svg" id="2_s7nse"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a0i8c"]
+size = Vector2(128, 128)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aix3r"]
+size = Vector2(2431.5, 101)
+
+[node name="CrystalCave" type="Node2D"]
+position = Vector2(8, -48)
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(304, 320)
+texture = ExtResource("1_secg8")
+
+[node name="Sprite2D2" type="Sprite2D" parent="."]
+position = Vector2(912, 320)
+texture = ExtResource("1_secg8")
+
+[node name="Sprite2D3" type="Sprite2D" parent="."]
+position = Vector2(1520, 320)
+texture = ExtResource("1_secg8")
+
+[node name="Sprite2D4" type="Sprite2D" parent="."]
+position = Vector2(2128, 320)
+texture = ExtResource("1_secg8")
+
+[node name="CavePlayer" type="CharacterBody2D" parent="."]
+position = Vector2(64, 472)
+script = ExtResource("2_0bkeb")
+
+[node name="Sprite2D" type="Sprite2D" parent="CavePlayer"]
+texture = ExtResource("2_s7nse")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CavePlayer"]
+shape = SubResource("RectangleShape2D_a0i8c")
+
+[node name="Camera2D" type="Camera2D" parent="CavePlayer"]
+position = Vector2(0, -160)
+
+[node name="Floor" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Floor"]
+position = Vector2(1215.75, 592)
+shape = SubResource("RectangleShape2D_aix3r")

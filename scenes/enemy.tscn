@@ -1,0 +1,65 @@
+[gd_scene load_steps=9 format=3 uid="uid://cs41b21v5mm86"]
+
+[ext_resource type="Script" path="res://scripts/enemy.gd" id="1_amcpp"]
+[ext_resource type="Texture2D" uid="uid://c6342ar8k7ygy" path="res://images/icon.svg" id="1_icfvw"]
+[ext_resource type="Script" path="res://scripts/hurtbox.gd" id="3_4tw7g"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_kyafi"]
+size = Vector2(129, 128)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_oxkyo"]
+radius = 241.133
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5m5w5"]
+size = Vector2(129, 129)
+
+[sub_resource type="Animation" id="Animation_h4h2b"]
+resource_name = "hit"
+length = 0.4
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:skew")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 0,
+"values": [0.0, -0.785398, 0.0, 0.785398, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_5xs44"]
+_data = {
+"hit": SubResource("Animation_h4h2b")
+}
+
+[node name="Enemy" type="CharacterBody2D"]
+script = ExtResource("1_amcpp")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(1, 0, 0, 1)
+texture = ExtResource("1_icfvw")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_kyafi")
+
+[node name="DetectionArea" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="DetectionArea"]
+shape = SubResource("CircleShape2D_oxkyo")
+
+[node name="HurtBox" type="Area2D" parent="."]
+script = ExtResource("3_4tw7g")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
+position = Vector2(0.5, -0.5)
+shape = SubResource("RectangleShape2D_5m5w5")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_5xs44")
+}

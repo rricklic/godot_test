@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://dd3vrxbyr3hs8"]
+
+[ext_resource type="Script" path="res://scripts/data_types.gd" id="1_mpeue"]
+
+[node name="DataTypes" type="Node2D"]
+script = ExtResource("1_mpeue")

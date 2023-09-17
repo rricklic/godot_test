@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=3 uid="uid://d26gqbs25sg"]
+
+[ext_resource type="Texture2D" uid="uid://c6342ar8k7ygy" path="res://images/icon.svg" id="1_ou3sd"]
+[ext_resource type="Script" path="res://scripts/animation_bob.gd" id="2_2bx0m"]
+
+[sub_resource type="Animation" id="Animation_psgb0"]
+length = 0.001
+
+[sub_resource type="Animation" id="Animation_m60f1"]
+resource_name = "bob"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("CardHand:position:y")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(0.5, 2, 0.5, 2, 1),
+"update": 0,
+"values": [0.0, 8.0, 0.0, -8.0, 0.0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_07ycm"]
+_data = {
+"RESET": SubResource("Animation_psgb0"),
+"bob": SubResource("Animation_m60f1")
+}
+
+[node name="FloatingPrompt" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, 5.12)
+texture = ExtResource("1_ou3sd")
+
+[node name="AnimationBob" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_07ycm")
+}
+script = ExtResource("2_2bx0m")

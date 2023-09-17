@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=3 uid="uid://3c3uefxy3a8k"]
+
+[ext_resource type="Texture2D" uid="uid://chcontrfwhxmx" path="res://images/forest.png" id="1_6er4a"]
+[ext_resource type="Script" path="res://test/scene_transition/scene2.gd" id="1_55q22"]
+[ext_resource type="Texture2D" uid="uid://c6342ar8k7ygy" path="res://images/icon.svg" id="2_okko1"]
+
+[node name="Scene2" type="Node2D"]
+script = ExtResource("1_55q22")
+
+[node name="Forest" type="Sprite2D" parent="."]
+position = Vector2(600, 344)
+texture = ExtResource("1_6er4a")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(728, 88)
+texture = ExtResource("2_okko1")

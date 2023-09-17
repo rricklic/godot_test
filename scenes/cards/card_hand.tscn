@@ -1,0 +1,52 @@
+[gd_scene load_steps=7 format=3 uid="uid://ddwq52vclmhk1"]
+
+[ext_resource type="Script" path="res://scripts/card/card_hand.gd" id="1_cj3yh"]
+
+[sub_resource type="Curve" id="Curve_q1q2d"]
+min_value = -1.0
+_data = [Vector2(0, -1), 0.0, 2.0, 0, 1, Vector2(0.5, 0), 2.0, 2.0, 1, 1, Vector2(1, 1), 2.0, 0.0, 1, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_svq4x"]
+min_value = -1.0
+_data = [Vector2(0, -1), 0.0, 5.0, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0, Vector2(1, -1), -5.0, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Curve" id="Curve_so0pt"]
+min_value = -1.0
+_data = [Vector2(0, 1), 0.0, -6.5, 0, 0, Vector2(0.5, 0), 0.0, 0.0, 0, 0, Vector2(1, -1), -6.5, 0.0, 0, 0]
+point_count = 3
+
+[sub_resource type="Animation" id="Animation_8yaia"]
+resource_name = "bob"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5, 1, 1.5, 2),
+"transitions": PackedFloat32Array(0.5, 2, 0.5, 2, 1),
+"update": 0,
+"values": [Vector2(448, 256), Vector2(448, 266), Vector2(448, 256), Vector2(448, 246), Vector2(448, 256)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_xcy6c"]
+_data = {
+"bob": SubResource("Animation_8yaia")
+}
+
+[node name="CardHand" type="Node2D"]
+position = Vector2(448, 256)
+script = ExtResource("1_cj3yh")
+curve_hand_width = SubResource("Curve_q1q2d")
+curve_hand_height = SubResource("Curve_svq4x")
+curve_hand_rotation = SubResource("Curve_so0pt")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_xcy6c")
+}

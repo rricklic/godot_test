@@ -1,0 +1,42 @@
+[gd_scene load_steps=4 format=3 uid="uid://cwllbataetqgf"]
+
+[ext_resource type="Script" path="res://scripts/dialogue/dialogue.gd" id="1_sa3n7"]
+[ext_resource type="Texture2D" uid="uid://cudav6i0n582i" path="res://images/dialog.png" id="2_545mq"]
+[ext_resource type="FontFile" uid="uid://bpwnly3br6ibw" path="res://font/retro_computer_personal_use.ttf" id="3_b4ghr"]
+
+[node name="Dialog" type="MarginContainer"]
+offset_right = 64.0
+offset_bottom = 64.0
+script = ExtResource("1_sa3n7")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+layout_mode = 2
+texture = ExtResource("2_545mq")
+patch_margin_left = 16
+patch_margin_top = 16
+patch_margin_right = 16
+patch_margin_bottom = 16
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="Label" type="Label" parent="MarginContainer"]
+texture_filter = 1
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("3_b4ghr")
+theme_override_font_sizes/font_size = 14
+vertical_alignment = 1
+
+[node name="Timer" type="Timer" parent="."]
+one_shot = true
+
+[node name="CompletedIcon" type="Polygon2D" parent="."]
+visible = false
+position = Vector2(48, 56)
+color = Color(0, 0, 0, 1)
+polygon = PackedVector2Array(0, 0, 8, 8, 16, 0)

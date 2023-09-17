@@ -1,0 +1,27 @@
+[gd_scene load_steps=3 format=3 uid="uid://bsaj546635wt4"]
+
+[ext_resource type="PackedScene" uid="uid://kcujnrjqquwm" path="res://scenes/scene_manager.tscn" id="1_ytgw7"]
+[ext_resource type="PackedScene" uid="uid://cn02k08p4gywl" path="res://test/scene_transition/scene1.tscn" id="2_w1x6i"]
+
+[node name="Main" type="Node2D"]
+
+[node name="SceneManager" parent="." instance=ExtResource("1_ytgw7")]
+
+[node name="Sprite2D" parent="SceneManager" index="0"]
+visible = false
+
+[node name="Sprite2D4" parent="SceneManager" index="1"]
+visible = false
+
+[node name="Sprite2D5" parent="SceneManager" index="2"]
+visible = false
+
+[node name="Sprite2D6" parent="SceneManager" index="3"]
+visible = false
+
+[node name="ScreenTransitionManager" parent="SceneManager" index="4"]
+visible = false
+
+[node name="Scene1" parent="SceneManager/CurrentSceneContainer" index="0" instance=ExtResource("2_w1x6i")]
+
+[editable path="SceneManager"]

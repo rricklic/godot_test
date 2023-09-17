@@ -1,0 +1,7 @@
+[gd_scene load_steps=2 format=3 uid="uid://bb1vv0rhrhmku"]
+
+[ext_resource type="PackedScene" uid="uid://ddwq52vclmhk1" path="res://scenes/cards/card_hand.tscn" id="1_unarj"]
+
+[node name="TestCardHand" type="Node2D"]
+
+[node name="CardHand" parent="." instance=ExtResource("1_unarj")]

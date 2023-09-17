@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cn02k08p4gywl"]
+
+[ext_resource type="Script" path="res://test/scene_transition/scene1.gd" id="1_abymt"]
+[ext_resource type="Texture2D" uid="uid://bgwjpbqnhy4if" path="res://images/cityscape.jpg" id="2_jnl7l"]
+[ext_resource type="Texture2D" uid="uid://c6342ar8k7ygy" path="res://images/icon.svg" id="3_4kybh"]
+
+[node name="Scene1" type="Node2D"]
+script = ExtResource("1_abymt")
+
+[node name="Cityscape" type="Sprite2D" parent="."]
+position = Vector2(496, 344)
+texture = ExtResource("2_jnl7l")
+
+[node name="Icon" type="Sprite2D" parent="."]
+position = Vector2(245, 404)
+texture = ExtResource("3_4kybh")
+
+[node name="Icon2" type="Sprite2D" parent="."]
+position = Vector2(645, 322)
+texture = ExtResource("3_4kybh")
