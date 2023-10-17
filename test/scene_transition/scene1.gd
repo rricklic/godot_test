@@ -15,17 +15,17 @@ func _process(delta):
 func _unhandled_key_input(event: InputEvent):
 	if (Input.is_key_pressed(KEY_N)):
 		var shader_outs: Array[ShaderTransition]
-#		shader_outs.push_back(ShaderTransition.init("res://shaders/transition/color_fade.gdshader")
-#			.add_param("amount", 0.0, 1.0, 1.0)
-#			.add_param("target_color", [0.0, 0.0, 0.0, 1.0], [0.0, 0.0, 0.0, 1.0], 1.0))
+		shader_outs.push_back(ShaderTransition.init("res://shaders/transition/color_fade.gdshader")
+			.add_param("amount", 0.0, 1.0, 2.0)
+			.add_param("target_color", [0.0, 0.0, 0.0, 1.0], [0.0, 0.0, 0.0, 1.0], 2.0))
 		shader_outs.push_back(ShaderTransition.init("res://shaders/transition/pixelate.gdshader")
-			.add_param("pixel_factor", 1.0, 0.0, 0.5))
+			.add_param("pixel_factor", 1.0, 0.0, 1.0))
 		
 		var shader_ins: Array[ShaderTransition]
-#		shader_ins.push_back(ShaderTransition.init("res://shaders/transition/color_fade.gdshader")
-#			.add_param("amount", 1.0, 0.0, 1.0)
-#			.add_param("target_color", [0.0, 0.0, 0.0, 1.0], [0.0, 0.0, 0.0, 1.0], 2.0))
+		shader_ins.push_back(ShaderTransition.init("res://shaders/transition/color_fade.gdshader")
+			.add_param("amount", 1.0, 0.0, 2.0)
+			.add_param("target_color", [0.0, 0.0, 0.0, 1.0], [0.0, 0.0, 0.0, 1.0], 2.0))
 		shader_ins.push_back(ShaderTransition.init("res://shaders/transition/pixelate.gdshader")
-			.add_param("pixel_factor", 0.0, 1.0, 0.5))
+			.add_param("pixel_factor", 0.0, 1.0, 1.0))
 		
 		SceneManager.instance.signal_transition.emit(self, next_scene, shader_outs, shader_ins)

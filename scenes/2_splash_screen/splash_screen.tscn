@@ -1,0 +1,43 @@
+[gd_scene load_steps=5 format=3 uid="uid://d0fn5p22itadv"]
+
+[ext_resource type="FontFile" uid="uid://bnqbjmoesu3x8" path="res://font/font_pixelated.ttf" id="1_4r37n"]
+[ext_resource type="Script" path="res://scenes/2_splash_screen/splash_screen.gd" id="1_sa3ih"]
+[ext_resource type="Texture2D" uid="uid://d0b5eno5m7n33" path="res://images/smile.png" id="2_3vkep"]
+[ext_resource type="Texture2D" uid="uid://xad02sxch30h" path="res://images/skull.png" id="3_d37cl"]
+
+[node name="SplashScreen" type="Node2D"]
+script = ExtResource("1_sa3ih")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_left = -8.0
+offset_top = -24.0
+offset_right = 328.0
+offset_bottom = 184.0
+color = Color(0, 0, 0, 1)
+
+[node name="Label" type="Label" parent="."]
+offset_left = 16.0
+offset_top = 40.0
+offset_right = 320.0
+offset_bottom = 80.0
+theme_override_colors/font_shadow_color = Color(0.356863, 0.356863, 0.356863, 1)
+theme_override_constants/shadow_outline_size = 10
+theme_override_fonts/font = ExtResource("1_4r37n")
+theme_override_font_sizes/font_size = 30
+text = "Happy Time Games"
+
+[node name="Smile" type="Sprite2D" parent="."]
+position = Vector2(160, 112)
+scale = Vector2(0.186198, 0.186198)
+texture = ExtResource("2_3vkep")
+
+[node name="Skull" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(160, 112)
+scale = Vector2(0.275, 0.275)
+texture = ExtResource("3_d37cl")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]

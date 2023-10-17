@@ -8,7 +8,8 @@
 script = ExtResource("1_abymt")
 
 [node name="Cityscape" type="Sprite2D" parent="."]
-position = Vector2(496, 344)
+position = Vector2(578, 331)
+scale = Vector2(1.164, 0.962428)
 texture = ExtResource("2_jnl7l")
 
 [node name="Icon" type="Sprite2D" parent="."]

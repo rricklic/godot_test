@@ -1,97 +1,11 @@
-[gd_scene load_steps=14 format=3 uid="uid://kcujnrjqquwm"]
+[gd_scene load_steps=2 format=3 uid="uid://kcujnrjqquwm"]
 
-[ext_resource type="Shader" path="res://shaders/noise_distort.gdshader" id="1_6iad1"]
 [ext_resource type="Script" path="res://scripts/scene_manager.gd" id="1_021wi"]
-[ext_resource type="Texture2D" uid="uid://bgwjpbqnhy4if" path="res://images/cityscape.jpg" id="2_5ofw2"]
-[ext_resource type="Texture2D" uid="uid://c6342ar8k7ygy" path="res://images/icon.svg" id="2_yc3t4"]
-[ext_resource type="Shader" path="res://shaders/fade.gdshader" id="3_c58u7"]
-[ext_resource type="Shader" path="res://shaders/screen/crt.gdshader" id="4_n3nw8"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_675fx"]
-shader = ExtResource("3_c58u7")
-shader_parameter/fade_amount = 1.0
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_ftlxo"]
-shader = ExtResource("4_n3nw8")
-shader_parameter/scan_line_count = 40.0
-
-[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qspac"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_13e7w"]
-
-[sub_resource type="ShaderMaterial" id="ShaderMaterial_3iupt"]
-shader = ExtResource("1_6iad1")
-shader_parameter/distort_amount = 0.03
-shader_parameter/scroll = Vector2(0.1, 0.1)
-shader_parameter/is_time_enabled = true
-shader_parameter/time_multiplier = 1.0
-
-[sub_resource type="FastNoiseLite" id="FastNoiseLite_8wlx5"]
-
-[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0b1fu"]
-seamless = true
-noise = SubResource("FastNoiseLite_8wlx5")
 
 [node name="SceneManager" type="Node2D"]
 script = ExtResource("1_021wi")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
-position = Vector2(144, 136)
-scale = Vector2(0.292, 0.384393)
-texture = ExtResource("2_5ofw2")
-
-[node name="Sprite2D4" type="Sprite2D" parent="."]
-position = Vector2(48, 208)
-scale = Vector2(0.125, 0.129628)
-texture = ExtResource("2_yc3t4")
-
-[node name="Sprite2D5" type="Sprite2D" parent="."]
-position = Vector2(112, 144)
-scale = Vector2(0.125, 0.129628)
-texture = ExtResource("2_yc3t4")
-
-[node name="Sprite2D6" type="Sprite2D" parent="."]
-material = SubResource("ShaderMaterial_675fx")
-position = Vector2(176, 208)
-scale = Vector2(0.125, 0.129628)
-texture = ExtResource("2_yc3t4")
-
-[node name="ScreenTransitionManager" type="Control" parent="."]
-layout_mode = 3
-anchors_preset = 0
-offset_left = 184.0
-offset_top = 152.0
-offset_right = 224.0
-offset_bottom = 192.0
-
-[node name="Shader2" type="TextureRect" parent="ScreenTransitionManager"]
-texture_repeat = 2
-material = SubResource("ShaderMaterial_ftlxo")
-layout_mode = 0
-offset_left = -312.0
-offset_top = -272.0
-offset_right = 200.0
-offset_bottom = 240.0
-texture = SubResource("PlaceholderTexture2D_qspac")
-
-[node name="BackBufferCopy" type="BackBufferCopy" parent="ScreenTransitionManager"]
-material = SubResource("ShaderMaterial_13e7w")
-position = Vector2(-176, -208)
-scale = Vector2(5, 3.44)
-copy_mode = 2
-
-[node name="Shader1" type="TextureRect" parent="ScreenTransitionManager"]
-texture_repeat = 2
-material = SubResource("ShaderMaterial_3iupt")
-layout_mode = 0
-offset_left = -280.0
-offset_top = -240.0
-offset_right = 232.0
-offset_bottom = 272.0
-scale = Vector2(1.95313, 1.35938)
-texture = SubResource("NoiseTexture2D_0b1fu")
-
-[node name="CurrentSceneContainer" type="Control" parent="."]
+[node name="SceneContainer" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
 

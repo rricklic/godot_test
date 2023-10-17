@@ -1,0 +1,47 @@
+[gd_scene load_steps=8 format=3 uid="uid://dxwubgy8xi216"]
+
+[ext_resource type="Shader" path="res://shaders/noise_distort.gdshader" id="1_heet4"]
+[ext_resource type="Shader" path="res://shaders/screen/crt.gdshader" id="2_idbac"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_3iupt"]
+shader = ExtResource("1_heet4")
+shader_parameter/distort_amount = 0.03
+shader_parameter/scroll = Vector2(0.1, 0.1)
+shader_parameter/is_time_enabled = true
+shader_parameter/time_multiplier = 1.0
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_8wlx5"]
+
+[sub_resource type="NoiseTexture2D" id="NoiseTexture2D_0b1fu"]
+seamless = true
+noise = SubResource("FastNoiseLite_8wlx5")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_ftlxo"]
+shader = ExtResource("2_idbac")
+shader_parameter/scan_line_count = 40.0
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qspac"]
+
+[node name="ScreenTransitionManager" type="Control"]
+visible = false
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NoiseDistortShader" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_3iupt")
+layout_mode = 0
+offset_right = 618.0
+offset_bottom = 512.0
+scale = Vector2(1.95313, 1.35938)
+texture = SubResource("NoiseTexture2D_0b1fu")
+
+[node name="CrtShader" type="TextureRect" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_ftlxo")
+layout_mode = 0
+offset_right = 1208.0
+offset_bottom = 696.0
+texture = SubResource("PlaceholderTexture2D_qspac")

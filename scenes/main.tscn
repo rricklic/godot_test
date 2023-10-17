@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=3 uid="uid://bp7e6qw2ysgj5"]
+[gd_scene load_steps=34 format=3 uid="uid://bp7e6qw2ysgj5"]
 
 [ext_resource type="PackedScene" uid="uid://08w08uq6tkg" path="res://scenes/player.tscn" id="1_h3mlc"]
 [ext_resource type="Shader" path="res://shaders/gradient_color_mapping.gdshader" id="1_u8qd1"]
@@ -11,6 +11,7 @@
 [ext_resource type="Shader" path="res://shaders/noise_overlap.gdshader" id="6_cfmjd"]
 [ext_resource type="Shader" path="res://shaders/blackhole.gdshader" id="6_hercs"]
 [ext_resource type="PackedScene" uid="uid://ddwq52vclmhk1" path="res://scenes/cards/card_hand.tscn" id="12_hgulb"]
+[ext_resource type="Shader" path="res://shaders/screen/crt.gdshader" id="13_2cymr"]
 [ext_resource type="PackedScene" uid="uid://d26gqbs25sg" path="res://scenes/floating_prompt.tscn" id="13_65fhn"]
 
 [sub_resource type="Gradient" id="Gradient_ihrf7"]
@@ -75,10 +76,26 @@ shader_parameter/amount = 0.609
 shader_parameter/curve = SubResource("CurveTexture_s5njo")
 
 [sub_resource type="FastNoiseLite" id="FastNoiseLite_ihwpt"]
+noise_type = 2
+seed = 8
+frequency = 0.02
+fractal_octaves = 10
+fractal_lacunarity = 5.0
+fractal_gain = 0.1
+fractal_weighted_strength = 1.0
 
 [sub_resource type="NoiseTexture2D" id="NoiseTexture2D_u20vh"]
+resource_local_to_scene = true
 seamless = true
 noise = SubResource("FastNoiseLite_ihwpt")
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_yx6x3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_6eos3"]
+shader = ExtResource("13_2cymr")
+shader_parameter/scan_line_count = 50.0
+
+[sub_resource type="CanvasTexture" id="CanvasTexture_k3rvf"]
 
 [node name="Main" type="Node"]
 
@@ -130,3 +147,27 @@ material = SubResource("ShaderMaterial_kte21")
 position = Vector2(641, 1266)
 scale = Vector2(3.34521, 1.85107)
 texture = SubResource("NoiseTexture2D_u20vh")
+
+[node name="Distortion3" type="Sprite2D" parent="."]
+texture_repeat = 2
+material = SubResource("ShaderMaterial_kte21")
+position = Vector2(2452, 805)
+scale = Vector2(3.34521, 1.85107)
+texture = SubResource("NoiseTexture2D_u20vh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+material = SubResource("ShaderMaterial_yx6x3")
+position = Vector2(-1270, 1397)
+texture = ExtResource("2_lnt6g")
+
+[node name="BackBufferCopy" type="BackBufferCopy" parent="."]
+position = Vector2(-1545, 1338)
+scale = Vector2(12.215, 9.325)
+
+[node name="TextureRect2" type="TextureRect" parent="."]
+material = SubResource("ShaderMaterial_6eos3")
+offset_left = -2456.0
+offset_top = -105.0
+offset_right = 2277.0
+offset_bottom = 2265.0
+texture = SubResource("CanvasTexture_k3rvf")

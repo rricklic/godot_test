@@ -4,7 +4,7 @@ const MAX_X: int = 150
 const MAX_Y: int = 150
 const MAX_R: int = 45
 
-@export var noise: FastNoiseLite
+@export var noise: FastNoiseLite # TODO: allow randomness or noise
 var trauma: float = 0.0 # TODO: set according to event
 var time: float
 

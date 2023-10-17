@@ -1,0 +1,82 @@
+[gd_scene load_steps=8 format=3 uid="uid://bhc3mixvx6xdy"]
+
+[ext_resource type="Texture2D" uid="uid://ck21d03web7sl" path="res://images/parallax_background/sky.png" id="1_6dmrm"]
+[ext_resource type="Texture2D" uid="uid://lcmb30vr0rfq" path="res://images/parallax_background/mountains.png" id="2_5p5qi"]
+[ext_resource type="Texture2D" uid="uid://dvbtbk1tt5xsc" path="res://images/parallax_background/far-clouds.png" id="2_56yh6"]
+[ext_resource type="Texture2D" uid="uid://hlmyd2dp558y" path="res://images/parallax_background/far-mountains.png" id="2_l7xt6"]
+[ext_resource type="Texture2D" uid="uid://bkfouvv221v1f" path="res://images/parallax_background/near-clouds.png" id="3_7kih3"]
+[ext_resource type="PackedScene" uid="uid://dhtv2amxmwqy7" path="res://scenes/side_scroller/player.tscn" id="3_hsuu2"]
+[ext_resource type="Texture2D" uid="uid://bxeihdmf6y5y2" path="res://images/parallax_background/trees.png" id="4_2td4n"]
+
+[node name="SideScroller" type="Node2D"]
+
+[node name="ParallaxBackground" type="ParallaxBackground" parent="."]
+
+[node name="Sky" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Sky"]
+texture_filter = 1
+texture = ExtResource("1_6dmrm")
+centered = false
+
+[node name="FarClouds" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.125, 0.125)
+motion_mirroring = Vector2(384, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FarClouds"]
+texture_repeat = 2
+texture = ExtResource("2_56yh6")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 384, 240)
+
+[node name="NearClouds" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.25, 0.25)
+motion_mirroring = Vector2(432, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/NearClouds"]
+texture_repeat = 2
+texture = ExtResource("3_7kih3")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 432, 240)
+
+[node name="FarMountains" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(0.5, 0.5)
+motion_mirroring = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/FarMountains"]
+texture_repeat = 2
+texture = ExtResource("2_l7xt6")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 320, 240)
+
+[node name="NearMountains" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_mirroring = Vector2(320, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/NearMountains"]
+texture_filter = 1
+texture = ExtResource("2_5p5qi")
+centered = false
+
+[node name="Trees" type="ParallaxLayer" parent="ParallaxBackground"]
+motion_scale = Vector2(2, 2)
+motion_mirroring = Vector2(480, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="ParallaxBackground/Trees"]
+texture_repeat = 2
+texture = ExtResource("4_2td4n")
+centered = false
+region_enabled = true
+region_rect = Rect2(0, 0, 480, 240)
+
+[node name="Player" parent="." instance=ExtResource("3_hsuu2")]
+position = Vector2(15, 90)
+
+[node name="Camera2D" parent="Player" index="1"]
+scale = Vector2(0.5, 0.5)
+offset = Vector2(100, 0)
+
+[editable path="Player"]
