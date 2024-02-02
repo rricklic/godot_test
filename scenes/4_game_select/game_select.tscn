@@ -1,0 +1,190 @@
+[gd_scene load_steps=5 format=3 uid="uid://bmlm5cwq45357"]
+
+[ext_resource type="Script" path="res://scenes/4_game_select/game_select.gd" id="1_rkp25"]
+[ext_resource type="Texture2D" uid="uid://bw67s1jp0nyos" path="res://images/gameselect_background.jpg" id="2_hlo8y"]
+[ext_resource type="Theme" uid="uid://b2lvyykc7wj3c" path="res://themes/test_theme.tres" id="2_s06xp"]
+[ext_resource type="Texture2D" uid="uid://5f7a8j7w5b1p" path="res://images/arrow.png" id="4_0empd"]
+
+[node name="GameSelection" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_rkp25")
+
+[node name="ColorRect" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_hlo8y")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -4.0
+offset_right = 4.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("2_s06xp")
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="Title" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 0
+text = "Game select"
+horizontal_alignment = 2
+vertical_alignment = 1
+
+[node name="Game" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/Game"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="Spacer" type="Control" parent="MarginContainer/VBoxContainer/Game/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="ArrowLeft" type="TextureRect" parent="MarginContainer/VBoxContainer/Game/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 8
+texture = ExtResource("4_0empd")
+flip_h = true
+
+[node name="SelectedGame" type="ColorRect" parent="MarginContainer/VBoxContainer/Game/HBoxContainer"]
+custom_minimum_size = Vector2(48, 48)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 6
+color = Color(1, 0, 0, 1)
+
+[node name="ArrowRight" type="TextureRect" parent="MarginContainer/VBoxContainer/Game/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+texture = ExtResource("4_0empd")
+
+[node name="Spacer2" type="Control" parent="MarginContainer/VBoxContainer/Game/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_vertical = 4
+
+[node name="GameName" type="Label" parent="MarginContainer/VBoxContainer/Game"]
+layout_mode = 2
+size_flags_horizontal = 4
+theme_type_variation = &"LabelSmall"
+text = "Game name"
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer/PanelContainer"]
+layout_mode = 2
+theme_override_constants/margin_top = 5
+theme_override_constants/margin_bottom = 5
+
+[node name="Games" type="ScrollContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer"]
+custom_minimum_size = Vector2(0, 32)
+layout_mode = 2
+size_flags_vertical = 10
+
+[node name="CenterContainer" type="HBoxContainer" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/Games"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/separation = 32
+
+[node name="Game1" type="ColorRect" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/Games/CenterContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0, 0, 1)
+
+[node name="Game2" type="ColorRect" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/Games/CenterContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0, 0, 1)
+
+[node name="Game3" type="ColorRect" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/Games/CenterContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0, 0, 1)
+
+[node name="Game4" type="ColorRect" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/Games/CenterContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0, 0, 1)
+
+[node name="Game5" type="ColorRect" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/Games/CenterContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0, 0, 1)
+
+[node name="Game6" type="ColorRect" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/Games/CenterContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0, 0, 1)
+
+[node name="Game7" type="ColorRect" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/Games/CenterContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0, 0, 1)
+
+[node name="Game8" type="ColorRect" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/Games/CenterContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0, 0, 1)
+
+[node name="Game9" type="ColorRect" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/Games/CenterContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0, 0, 1)
+
+[node name="Game10" type="ColorRect" parent="MarginContainer/VBoxContainer/PanelContainer/MarginContainer/Games/CenterContainer"]
+custom_minimum_size = Vector2(32, 32)
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+color = Color(1, 0, 0, 1)
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Camera2D" type="Camera2D" parent="."]
+anchor_mode = 0

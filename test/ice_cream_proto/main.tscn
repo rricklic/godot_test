@@ -1,0 +1,33 @@
+[gd_scene load_steps=5 format=3 uid="uid://donyni0oipr5e"]
+
+[ext_resource type="Script" path="res://test/ice_cream_proto/cone.gd" id="1_ttkch"]
+[ext_resource type="Script" path="res://test/ice_cream_proto/main.gd" id="1_yyaaf"]
+[ext_resource type="Script" path="res://test/ice_cream_proto/Pattern.gd" id="3_0s5tr"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w4y0m"]
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_yyaaf")
+
+[node name="Cone" type="Area2D" parent="."]
+position = Vector2(151, 156)
+script = ExtResource("1_ttkch")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Cone"]
+shape = SubResource("RectangleShape2D_w4y0m")
+
+[node name="Polygon2D" type="Polygon2D" parent="Cone"]
+color = Color(1, 0, 0, 1)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+autostart = true
+
+[node name="Pattern" type="Node2D" parent="."]
+script = ExtResource("3_0s5tr")
+
+[node name="Score" type="Label" parent="."]
+offset_left = 278.0
+offset_right = 318.0
+offset_bottom = 23.0

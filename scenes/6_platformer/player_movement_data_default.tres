@@ -1,0 +1,13 @@
+[gd_resource type="Resource" script_class="PlayerMovementData" load_steps=2 format=3 uid="uid://bxykd8vuxdvb4"]
+
+[ext_resource type="Script" path="res://scenes/6_platformer/player_movement_data.gd" id="1_wx7wo"]
+
+[resource]
+script = ExtResource("1_wx7wo")
+speed = 100.0
+acceleration = 800.0
+friction_ground = 1000.0
+friction_air = 200.0
+jump_velocity = -300.0
+jump_short_velocity_divisor = 3.0
+gravity_scale = 1.0

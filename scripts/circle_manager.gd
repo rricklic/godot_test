@@ -6,7 +6,7 @@ const NUM_CIRCLES: int = 10
 const DATA_FILE: String = "user://circle.dat"
 
 var rng: RandomNumberGenerator = RandomNumberGenerator.new()
-var circles: Array[] = []
+var circles: Array = []
 var window_size: Vector2 = Vector2(400, 300) # TODO:
 
 @onready var button: Button = get_child(0)

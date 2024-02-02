@@ -1,0 +1,60 @@
+[gd_scene load_steps=9 format=3 uid="uid://ds1akxev0om6b"]
+
+[ext_resource type="Script" path="res://components/player_side_test3.gd" id="1_n06ki"]
+[ext_resource type="Texture2D" uid="uid://c6342ar8k7ygy" path="res://images/icon.svg" id="1_pv4fa"]
+[ext_resource type="PackedScene" uid="uid://b2gsmqqpmjflp" path="res://components/scenes/camera/camera_ex2d.tscn" id="3_8wwf5"]
+[ext_resource type="Script" path="res://components/player_top_test3.gd" id="3_fpiga"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_t1qgb"]
+size = Vector2(129, 126)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ffsk"]
+size = Vector2(130, 131)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_aqpnm"]
+size = Vector2(2611, 95)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_5l7s3"]
+size = Vector2(56, 907)
+
+[node name="Test3" type="Node2D"]
+
+[node name="PlayerSide" type="CharacterBody2D" parent="."]
+script = ExtResource("1_n06ki")
+SPEED = 500.0
+JUMP_HEIGHT = 300.0
+JUMP_TIME_PEAK = 0.7
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerSide"]
+texture = ExtResource("1_pv4fa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerSide"]
+position = Vector2(0.5, 0)
+shape = SubResource("RectangleShape2D_t1qgb")
+
+[node name="PlayerTop" type="CharacterBody2D" parent="."]
+position = Vector2(-1149, -35)
+script = ExtResource("3_fpiga")
+
+[node name="Sprite2D" type="Sprite2D" parent="PlayerTop"]
+texture = ExtResource("1_pv4fa")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerTop"]
+position = Vector2(1, 0.5)
+shape = SubResource("RectangleShape2D_8ffsk")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+position = Vector2(1, 291)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+shape = SubResource("RectangleShape2D_aqpnm")
+
+[node name="Wall" type="StaticBody2D" parent="."]
+position = Vector2(-816, -198)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+shape = SubResource("RectangleShape2D_5l7s3")
+
+[node name="Camera2DEx" parent="." instance=ExtResource("3_8wwf5")]
+
+[editable path="Camera2DEx"]

@@ -8,7 +8,6 @@ extends Node2D
 
 ################################################################################
 func _ready():
-	# TODO: restore
 	#var tween = self.create_tween()
 	#tween.set_trans(Tween.TRANS_CIRC)
 	#tween.set_ease(Tween.EASE_OUT)

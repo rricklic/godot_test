@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://c330kt5vp168k"]
+
+[ext_resource type="Script" path="res://test/ice_cream_proto/ice_cream.gd" id="1_7buuy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bri65"]
+
+[node name="IceCream" type="Area2D"]
+script = ExtResource("1_7buuy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_bri65")
+
+[node name="Polygon2D" type="Polygon2D" parent="."]
+color = Color(1, 0.541176, 0.631373, 1)
+polygon = PackedVector2Array(-10, -10, 10, -10, 10, 10, -10, 10)

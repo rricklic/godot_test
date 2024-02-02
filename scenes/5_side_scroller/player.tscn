@@ -1,0 +1,25 @@
+[gd_scene load_steps=4 format=3 uid="uid://dhtv2amxmwqy7"]
+
+[ext_resource type="Script" path="res://scenes/5_side_scroller/player.gd" id="1_21fpv"]
+[ext_resource type="Texture2D" uid="uid://c6342ar8k7ygy" path="res://images/icon.svg" id="2_jlxsv"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0sc2u"]
+size = Vector2(6.25, 7)
+
+[node name="Player" type="CharacterBody2D"]
+motion_mode = 1
+slide_on_ceiling = false
+floor_stop_on_slope = false
+floor_block_on_wall = false
+script = ExtResource("1_21fpv")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.0546875, 0.0546875)
+texture = ExtResource("2_jlxsv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0.125, 0)
+shape = SubResource("RectangleShape2D_0sc2u")
+
+[node name="TimerBulletCooldown" type="Timer" parent="."]
+one_shot = true

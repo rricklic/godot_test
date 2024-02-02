@@ -23,13 +23,13 @@ shader_parameter/scan_line_count = 40.0
 [sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_qspac"]
 
 [node name="ScreenTransitionManager" type="Control"]
-visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="NoiseDistortShader" type="TextureRect" parent="."]
+visible = false
 texture_repeat = 2
 material = SubResource("ShaderMaterial_3iupt")
 layout_mode = 0
@@ -39,6 +39,7 @@ scale = Vector2(1.95313, 1.35938)
 texture = SubResource("NoiseTexture2D_0b1fu")
 
 [node name="CrtShader" type="TextureRect" parent="."]
+visible = false
 texture_repeat = 2
 material = SubResource("ShaderMaterial_ftlxo")
 layout_mode = 0

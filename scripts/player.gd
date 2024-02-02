@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-class_name Player
+class_name Player2
 
 const SPEED: float = 300.0
 const MAX_HP: int = 25

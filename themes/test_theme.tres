@@ -1,0 +1,99 @@
+[gd_resource type="Theme" load_steps=11 format=3 uid="uid://b2lvyykc7wj3c"]
+
+[ext_resource type="FontFile" uid="uid://bpwnly3br6ibw" path="res://font/retro_computer_personal_use.ttf" id="1_lh3pt"]
+[ext_resource type="Texture2D" uid="uid://4th7mmcl2g03" path="res://images/frame.png" id="2_po17c"]
+[ext_resource type="Texture2D" uid="uid://0vkd3lg6ch65" path="res://images/ButtonHover.png" id="2_ts3n4"]
+[ext_resource type="Texture2D" uid="uid://b856el4d2gfj" path="res://images/Button.png" id="3_lm3bd"]
+[ext_resource type="Texture2D" uid="uid://253yqlf41u8i" path="res://images/ButtonClicked.png" id="4_h61tn"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_0bi52"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_g033p"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 4.0
+texture = ExtResource("2_ts3n4")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_cwqyj"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 4.0
+texture = ExtResource("3_lm3bd")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_n7w4o"]
+content_margin_left = 0.0
+content_margin_top = 0.0
+content_margin_right = 0.0
+content_margin_bottom = 0.0
+texture = ExtResource("4_h61tn")
+texture_margin_left = 4.0
+texture_margin_top = 4.0
+texture_margin_right = 4.0
+texture_margin_bottom = 4.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_udup2"]
+texture = ExtResource("2_po17c")
+texture_margin_left = 16.0
+texture_margin_top = 16.0
+texture_margin_right = 16.0
+texture_margin_bottom = 16.0
+
+[resource]
+Button/colors/font_color = Color(1, 1, 1, 1)
+Button/constants/h_separation = 2
+Button/constants/icon_max_width = 0
+Button/constants/outline_size = 0
+Button/font_sizes/font_size = 8
+Button/fonts/font = ExtResource("1_lh3pt")
+Button/styles/focus = SubResource("StyleBoxEmpty_0bi52")
+Button/styles/hover = SubResource("StyleBoxTexture_g033p")
+Button/styles/normal = SubResource("StyleBoxTexture_cwqyj")
+Button/styles/pressed = SubResource("StyleBoxTexture_n7w4o")
+Label/fonts/font = ExtResource("1_lh3pt")
+LabelSmall/base_type = &"Label"
+LabelSmall/colors/font_color = Color(1, 1, 1, 1)
+LabelSmall/colors/font_outline_color = Color(0, 0, 0, 1)
+LabelSmall/colors/font_shadow_color = Color(0, 0, 0, 1)
+LabelSmall/constants/line_spacing = 0
+LabelSmall/constants/outline_size = 0
+LabelSmall/constants/shadow_offset_x = 0
+LabelSmall/constants/shadow_offset_y = 0
+LabelSmall/constants/shadow_outline_size = 0
+LabelSmall/font_sizes/font_size = 8
+LabelSmall/fonts/font = ExtResource("1_lh3pt")
+LabelSmall/styles/normal = null
+LabelTitleDark/base_type = &"Label"
+LabelTitleDark/colors/font_color = Color(0, 0, 0, 1)
+LabelTitleDark/colors/font_outline_color = Color(0, 0, 0, 1)
+LabelTitleDark/colors/font_shadow_color = Color(0, 0, 0, 1)
+LabelTitleDark/constants/line_spacing = 0
+LabelTitleDark/constants/outline_size = 0
+LabelTitleDark/constants/shadow_offset_x = 0
+LabelTitleDark/constants/shadow_offset_y = 0
+LabelTitleDark/constants/shadow_outline_size = 0
+LabelTitleDark/font_sizes/font_size = 32
+LabelTitleDark/fonts/font = ExtResource("1_lh3pt")
+LabelTitleDark/styles/normal = null
+LabelTitleLight/base_type = &"Label"
+LabelTitleLight/colors/font_color = Color(1, 1, 1, 1)
+LabelTitleLight/colors/font_outline_color = Color(0, 0, 0, 1)
+LabelTitleLight/colors/font_shadow_color = Color(0, 0, 0, 1)
+LabelTitleLight/constants/line_spacing = 0
+LabelTitleLight/constants/outline_size = 0
+LabelTitleLight/constants/shadow_offset_x = 0
+LabelTitleLight/constants/shadow_offset_y = 0
+LabelTitleLight/constants/shadow_outline_size = 0
+LabelTitleLight/font_sizes/font_size = 32
+LabelTitleLight/fonts/font = ExtResource("1_lh3pt")
+LabelTitleLight/styles/normal = null
+PanelContainer/styles/panel = SubResource("StyleBoxTexture_udup2")

@@ -1,0 +1,36 @@
+[gd_scene load_steps=7 format=3 uid="uid://dy4d6qsh2imd7"]
+
+[ext_resource type="Script" path="res://test/mouse/main.gd" id="1_8quxf"]
+[ext_resource type="PackedScene" uid="uid://hh1vpwv8801o" path="res://test/mouse/cone.tscn" id="2_dhvm7"]
+[ext_resource type="AudioStream" uid="uid://di4e15soo1hdm" path="res://audio/pickupCoin.wav" id="3_w2x3j"]
+[ext_resource type="AudioStream" uid="uid://c46gx5cnvwvoe" path="res://audio/click.wav" id="4_wj7xk"]
+
+[sub_resource type="Gradient" id="Gradient_ciyoj"]
+colors = PackedColorArray(0, 0.517647, 0.541176, 1, 1, 0.422792, 0.989173, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_pih81"]
+gradient = SubResource("Gradient_ciyoj")
+fill_to = Vector2(1, 1)
+
+[node name="Main" type="Node2D"]
+script = ExtResource("1_8quxf")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(160, 89.5)
+scale = Vector2(5.1875, 2.98438)
+texture = SubResource("GradientTexture2D_pih81")
+
+[node name="Cone" parent="." instance=ExtResource("2_dhvm7")]
+position = Vector2(160, 158)
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Label" type="Label" parent="."]
+offset_right = 40.0
+offset_bottom = 23.0
+
+[node name="AudioStreamPlayerCatch" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("3_w2x3j")
+
+[node name="AudioStreamPlayerMiss" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("4_wj7xk")

@@ -1,6 +1,6 @@
 extends Area2D
 
-class_name HurtBox
+class_name HurtBox   
 
 # Called when the node enters the scene tree for the first time.
 func _init() -> void:
@@ -10,7 +10,7 @@ func _init() -> void:
 func _ready() -> void:
 	self.area_entered.connect(_on_area_entered)
 	
-func _on_area_entered(hitbox: HitBox) -> void:
+func _on_area_entered(hitbox: HitBox2) -> void:
 	if (hitbox == null):
 		return
 	if (owner.has_method("take_damage")):

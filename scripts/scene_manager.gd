@@ -4,7 +4,7 @@ class_name SceneManager
 
 static var instance: SceneManager = SceneManager.new()
 
-signal signal_transition(current: Node2D, next: String, shader_outs: Array[ShaderTransition], shader_ins: Array[ShaderTransition])
+signal signal_transition(current: Node, next: String, shader_outs: Array[ShaderTransition], shader_ins: Array[ShaderTransition])
 
 var temps: Array[Node];
 
@@ -25,7 +25,7 @@ func _create_shader(shader_transition: ShaderTransition) -> TextureRect:
 	return texture_rect;
 
 func _on_transition(
-		current: Node2D,
+		current: Node,
 		next: String,
 		shader_outs: Array[ShaderTransition],
 		shader_ins: Array[ShaderTransition]) -> void:
@@ -47,7 +47,7 @@ func _on_transition(
 	tween.set_parallel(false)
 	tween.tween_callback(_on_transition_in.bind(current, next, shader_ins))
 
-func _on_transition_in(current: Node2D, next: String, shader_ins: Array[ShaderTransition]) -> void:
+func _on_transition_in(current: Node, next: String, shader_ins: Array[ShaderTransition]) -> void:
 	if (next == ""):
 		_cleanup_temps()
 		return
@@ -72,6 +72,27 @@ func _on_transition_in(current: Node2D, next: String, shader_ins: Array[ShaderTr
 	tween.set_parallel(false)
 	
 	tween.tween_callback(_cleanup_temps)
+
+func _load_schene(resource: String) -> Node:
+	var packed_schene: PackedScene = load(resource)
+	return packed_schene.instantiate()
+
+func _load_schene_threaded(resource: String) -> Node:
+	var error: Error = ResourceLoader.load_threaded_request(resource)
+	var progress: Array
+	while true:
+		var load_status: ResourceLoader.ThreadLoadStatus = ResourceLoader.load_threaded_get_status(resource, progress)
+		match load_status:
+			ResourceLoader.THREAD_LOAD_FAILED:
+				break
+			ResourceLoader.THREAD_LOAD_INVALID_RESOURCE:
+				break
+			ResourceLoader.THREAD_LOAD_IN_PROGRESS:
+				print("progress = " + str(progress[0]))
+			ResourceLoader.THREAD_LOAD_LOADED:
+				var packed_scene: PackedScene = ResourceLoader.load_threaded_get(resource)
+				return packed_scene.instantiate()
+	return null
 
 func _cleanup_temps() -> void:
 	for temp in temps:

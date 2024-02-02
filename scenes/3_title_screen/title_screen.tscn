@@ -1,37 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://8y46x6efe1u5"]
+[gd_scene load_steps=6 format=3 uid="uid://8y46x6efe1u5"]
 
-[ext_resource type="FontFile" uid="uid://bpwnly3br6ibw" path="res://font/retro_computer_personal_use.ttf" id="1_ftxmw"]
 [ext_resource type="AudioStream" uid="uid://bips1v2n06eom" path="res://audio/music_title.wav" id="1_lwvvd"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1owfj"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ueyvu"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2vgck"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sague"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1supt"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1lbb5"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_g0iav"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ubagl"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_y7cpa"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nbbpe"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8y0ry"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rw8ni"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_gphi4"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pa0dl"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dg45w"]
+[ext_resource type="Theme" uid="uid://b2lvyykc7wj3c" path="res://themes/test_theme.tres" id="1_yl0r2"]
+[ext_resource type="Texture2D" uid="uid://bw67s1jp0nyos" path="res://images/gameselect_background.jpg" id="2_hdoby"]
+[ext_resource type="Script" path="res://scenes/3_title_screen/title_screen.gd" id="2_w8jff"]
+[ext_resource type="Script" path="res://scenes/3_title_screen/start_game_button.gd" id="4_sr1td"]
 
 [node name="TitleScreen" type="Control"]
 layout_mode = 3
@@ -40,6 +13,8 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = ExtResource("1_yl0r2")
+script = ExtResource("2_w8jff")
 
 [node name="ColorRect" type="ColorRect" parent="."]
 layout_mode = 1
@@ -48,6 +23,12 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_hdoby")
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
@@ -67,55 +48,35 @@ alignment = 1
 
 [node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
 layout_mode = 2
-size_flags_vertical = 3
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_fonts/font = ExtResource("1_ftxmw")
-theme_override_font_sizes/font_size = 32
+size_flags_vertical = 6
+theme_type_variation = &"LabelTitleLight"
 text = "Title Screen"
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="ButtonContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer"]
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/margin_left = 100
+theme_override_constants/margin_right = 100
+
+[node name="ButtonContainer" type="VBoxContainer" parent="MarginContainer/VBoxContainer/MarginContainer"]
 layout_mode = 2
 size_flags_vertical = 10
 
-[node name="StartGame" type="Button" parent="MarginContainer/VBoxContainer/ButtonContainer"]
+[node name="StartGame" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/ButtonContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("1_ftxmw")
-theme_override_font_sizes/font_size = 8
-theme_override_styles/normal = SubResource("StyleBoxFlat_1owfj")
-theme_override_styles/hover = SubResource("StyleBoxFlat_ueyvu")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_2vgck")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_sague")
-theme_override_styles/focus = SubResource("StyleBoxFlat_1supt")
 text = "Start"
+script = ExtResource("4_sr1td")
 
-[node name="Options" type="Button" parent="MarginContainer/VBoxContainer/ButtonContainer"]
+[node name="Options" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/ButtonContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("1_ftxmw")
-theme_override_font_sizes/font_size = 8
-theme_override_styles/normal = SubResource("StyleBoxFlat_1lbb5")
-theme_override_styles/hover = SubResource("StyleBoxFlat_g0iav")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_ubagl")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_y7cpa")
-theme_override_styles/focus = SubResource("StyleBoxFlat_nbbpe")
 text = "Options"
 
-[node name="QuitGame" type="Button" parent="MarginContainer/VBoxContainer/ButtonContainer"]
+[node name="QuitGame" type="Button" parent="MarginContainer/VBoxContainer/MarginContainer/ButtonContainer"]
 layout_mode = 2
-size_flags_horizontal = 4
 size_flags_vertical = 4
-theme_override_fonts/font = ExtResource("1_ftxmw")
-theme_override_font_sizes/font_size = 8
-theme_override_styles/normal = SubResource("StyleBoxFlat_8y0ry")
-theme_override_styles/hover = SubResource("StyleBoxFlat_rw8ni")
-theme_override_styles/pressed = SubResource("StyleBoxFlat_gphi4")
-theme_override_styles/disabled = SubResource("StyleBoxFlat_pa0dl")
-theme_override_styles/focus = SubResource("StyleBoxFlat_dg45w")
 text = "Quit
 "
 

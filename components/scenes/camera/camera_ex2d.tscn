@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2gsmqqpmjflp"]
+
+[ext_resource type="Script" path="res://components/scenes/camera/camera_ex2d.gd" id="1_ye4th"]
+
+[sub_resource type="FastNoiseLite" id="FastNoiseLite_pru0c"]
+noise_type = 3
+domain_warp_enabled = true
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_6skn1"]
+size = Vector2(386, 243)
+
+[node name="Camera2DEx" type="Area2D"]
+script = ExtResource("1_ye4th")
+noise = SubResource("FastNoiseLite_pru0c")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0.5)
+shape = SubResource("RectangleShape2D_6skn1")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+ignore_rotation = false

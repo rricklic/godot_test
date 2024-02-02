@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://ocgvf112mu7e"]
+
+[ext_resource type="Script" path="res://components/scenes/camera/camera_event_area.gd" id="1_rlxll"]
+
+[node name="CameraEventArea" type="Area2D"]
+script = ExtResource("1_rlxll")

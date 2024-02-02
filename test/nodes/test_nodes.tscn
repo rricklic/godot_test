@@ -1,0 +1,100 @@
+[gd_scene load_steps=16 format=3 uid="uid://bftl5caiyi1s3"]
+
+[ext_resource type="Script" path="res://test/nodes/test_nodes.gd" id="1_bq1e6"]
+[ext_resource type="Texture2D" uid="uid://bgwjpbqnhy4if" path="res://images/cityscape.jpg" id="1_wrggp"]
+[ext_resource type="Script" path="res://test/nodes/DirectionalLight2D.gd" id="2_1hj8j"]
+[ext_resource type="Script" path="res://test/nodes/CanvasModulate.gd" id="3_kfrkr"]
+[ext_resource type="Script" path="res://test/nodes/CharacterBody2D.gd" id="4_xy8ca"]
+[ext_resource type="PackedScene" uid="uid://djma3lcfx488n" path="res://test/nodes/dropping_item.tscn" id="5_nsjaq"]
+[ext_resource type="Script" path="res://test/nodes/dropping_item.gd" id="6_h86m4"]
+
+[sub_resource type="Gradient" id="Gradient_bwvxu"]
+offsets = PackedFloat32Array(0, 0.134557, 0.284404, 0.431193, 0.547401, 0.657492, 0.969419, 0.98471)
+colors = PackedColorArray(0.0237265, 0.119422, 0.249746, 1, 0.170706, 0.22699, 0.475904, 1, 0.458193, 0.304426, 0.665806, 1, 0.708562, 0.369356, 0.676635, 1, 0.797649, 0.5, 0.642889, 1, 0.97052, 0.76219, 0.812183, 1, 1, 1, 1, 1, 1, 0, 0, 1)
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_j4neh"]
+gradient = SubResource("Gradient_bwvxu")
+
+[sub_resource type="OccluderPolygon2D" id="OccluderPolygon2D_o4l3s"]
+polygon = PackedVector2Array(0, -1, 182, 1, 186, 40, -1, 41)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_e53s0"]
+size = Vector2(321, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_uvhbp"]
+size = Vector2(23, 161)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b8w8w"]
+size = Vector2(20, 160)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_tot0a"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gtrhe"]
+
+[node name="TestNodes" type="Node2D"]
+script = ExtResource("1_bq1e6")
+
+[node name="CanvasModulate" type="CanvasModulate" parent="."]
+position = Vector2(1.52588e-05, 0)
+script = ExtResource("3_kfrkr")
+gradient = SubResource("GradientTexture1D_j4neh")
+
+[node name="Background" type="Sprite2D" parent="."]
+position = Vector2(161, 92)
+scale = Vector2(0.322, 0.265896)
+texture = ExtResource("1_wrggp")
+
+[node name="DirectionalLight2D" type="DirectionalLight2D" parent="."]
+visible = false
+position = Vector2(154, -55)
+rotation = -0.76969
+energy = 0.32
+shadow_enabled = true
+script = ExtResource("2_1hj8j")
+
+[node name="LightOccluder2D" type="LightOccluder2D" parent="."]
+occluder = SubResource("OccluderPolygon2D_o4l3s")
+
+[node name="Ground" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground"]
+position = Vector2(160.5, 171)
+shape = SubResource("RectangleShape2D_e53s0")
+
+[node name="Wall" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall"]
+position = Vector2(12, 80.5)
+shape = SubResource("RectangleShape2D_uvhbp")
+
+[node name="Wall2" type="StaticBody2D" parent="."]
+position = Vector2(293, 27)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Wall2"]
+position = Vector2(17, 54)
+shape = SubResource("RectangleShape2D_b8w8w")
+
+[node name="DroppingItem" parent="." instance=ExtResource("5_nsjaq")]
+position = Vector2(154, 98)
+script = ExtResource("6_h86m4")
+
+[node name="DroppingItem2" parent="." instance=ExtResource("5_nsjaq")]
+position = Vector2(260, 10)
+
+[node name="PinJoint2D" type="PinJoint2D" parent="."]
+position = Vector2(154, 59)
+node_a = NodePath("../Wall")
+node_b = NodePath("../DroppingItem")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+script = ExtResource("4_xy8ca")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_tot0a")
+
+[node name="Timer" type="Timer" parent="."]
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("RectangleShape2D_gtrhe")

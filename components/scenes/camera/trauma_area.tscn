@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://bpbihu6g4tokg"]
+
+[ext_resource type="Script" path="res://components/scenes/camera/trauma_area.gd" id="1_b1udh"]
+
+[node name="TraumaArea" type="Area2D"]
+script = ExtResource("1_b1udh")

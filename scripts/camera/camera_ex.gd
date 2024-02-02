@@ -1,4 +1,4 @@
-extends Camera2D
+extends Caera2D
 
 const MAX_X: int = 150
 const MAX_Y: int = 150

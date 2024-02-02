@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://rjl8ajqoq0xe"]
+
+[ext_resource type="Script" path="res://components/scenes/hurtbox.gd" id="1_oquio"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xvvhf"]
+
+[node name="Hurtbox" type="Area2D"]
+script = ExtResource("1_oquio")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_xvvhf")
+
+[node name="Timer" type="Timer" parent="."]

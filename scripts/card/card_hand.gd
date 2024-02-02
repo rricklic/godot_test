@@ -20,7 +20,7 @@ func add_card(): # card: Card # TODO:
 	card.position = Vector2(2000.0, 600.0)
 	card.rotation_degrees = 0.0
 	cards.append(card)
-	self.add_child(card)	
+	self.add_child(card)
 	
 func _set_card_positions() -> void:	
 	var i: int = 0

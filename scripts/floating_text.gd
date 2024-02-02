@@ -15,7 +15,7 @@ func _ready() -> void:
 	tween.tween_property(self, "scale", Vector2(1.0, 1.0), 2).from(Vector2(0.5, 0.5))
 	tween.tween_property(self, "modulate", Color(1, 0, 0, 0), 2).from(Color(1, 0, 0, 1))
 	tween.set_parallel(false)
-	tween.tween_callback(_cleanup)	
+	tween.tween_callback(_cleanup)
 
 func _cleanup() -> void:
 	queue_free()

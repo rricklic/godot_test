@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://cyugu1g5weq2e"]
+
+[ext_resource type="Script" path="res://test/mouse/ice_cream.gd" id="1_0uja2"]
+[ext_resource type="Texture2D" uid="uid://c6342ar8k7ygy" path="res://images/icon.svg" id="2_1w4lk"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_62k8y"]
+size = Vector2(14, 14)
+
+[node name="IceCream" type="Area2D"]
+script = ExtResource("1_0uja2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(3.8147e-06, 3.8147e-06)
+scale = Vector2(0.1, 0.1)
+texture = ExtResource("2_1w4lk")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("RectangleShape2D_62k8y")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

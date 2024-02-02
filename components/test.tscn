@@ -1,0 +1,63 @@
+[gd_scene load_steps=11 format=3 uid="uid://h3ww8id0kke5"]
+
+[ext_resource type="Script" path="res://components/test.gd" id="1_1hp0y"]
+[ext_resource type="Script" path="res://components/player.gd" id="2_5a4vq"]
+[ext_resource type="PackedScene" uid="uid://rjl8ajqoq0xe" path="res://components/scenes/hurtbox.tscn" id="2_qhk4n"]
+[ext_resource type="PackedScene" uid="uid://c4qw0ttrgireu" path="res://components/scenes/hitbox.tscn" id="3_27b1v"]
+[ext_resource type="Script" path="res://components/classes/health2.gd" id="3_bg3ex"]
+[ext_resource type="PackedScene" uid="uid://b2gsmqqpmjflp" path="res://components/scenes/camera/camera_ex2d.tscn" id="6_pljre"]
+[ext_resource type="Script" path="res://components/scenes/camera/camera_event_area.gd" id="7_v0l20"]
+[ext_resource type="Script" path="res://components/character.gd" id="8_2yvi8"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_62jgf"]
+radius = 101.005
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dihl6"]
+
+[node name="Test" type="Node2D"]
+script = ExtResource("1_1hp0y")
+
+[node name="Player1" type="Node2D" parent="."]
+position = Vector2(53, 36)
+script = ExtResource("2_5a4vq")
+
+[node name="Health" type="Node" parent="Player1"]
+script = ExtResource("3_bg3ex")
+max_health = 20.0
+
+[node name="Hurtbox" parent="Player1" instance=ExtResource("2_qhk4n")]
+
+[node name="Hurtbox2" parent="." instance=ExtResource("2_qhk4n")]
+position = Vector2(147, 36)
+
+[node name="Enemy1" type="Node2D" parent="."]
+position = Vector2(53, 86)
+
+[node name="Hitbox" parent="Enemy1" instance=ExtResource("3_27b1v")]
+modulate = Color(1, 1, 0, 1)
+damage = 2.0
+
+[node name="Enemy2" type="Node2D" parent="."]
+position = Vector2(147, 86)
+
+[node name="Hitbox2" parent="Enemy2" instance=ExtResource("3_27b1v")]
+modulate = Color(1, 1, 0, 1)
+damage = 4.0
+
+[node name="CameraEx2D" parent="." instance=ExtResource("6_pljre")]
+noise_speed = 1000.0
+
+[node name="CameraEventArea" type="Area2D" parent="." node_paths=PackedStringArray("target")]
+script = ExtResource("7_v0l20")
+target = NodePath("../Enemy1")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CameraEventArea"]
+position = Vector2(40, 166)
+shape = SubResource("CircleShape2D_62jgf")
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+position = Vector2(-282, 31)
+script = ExtResource("8_2yvi8")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+shape = SubResource("RectangleShape2D_dihl6")
