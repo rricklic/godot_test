@@ -1,0 +1,22 @@
+[gd_scene load_steps=4 format=3 uid="uid://dlfa2hivtgx0b"]
+
+[ext_resource type="Texture2D" uid="uid://ldcvksh53qm8" path="res://scenes/6_platformer/spikes.png" id="1_ra15n"]
+[ext_resource type="Script" path="res://components/scenes/hitbox.gd" id="2_hlde3"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f88j2"]
+size = Vector2(16, 6)
+
+[node name="Spikes" type="Node2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(8, -8)
+texture = ExtResource("1_ra15n")
+
+[node name="Hitbox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 2
+script = ExtResource("2_hlde3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Hitbox"]
+position = Vector2(8, -3)
+shape = SubResource("RectangleShape2D_f88j2")

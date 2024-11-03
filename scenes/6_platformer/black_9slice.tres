@@ -1,0 +1,10 @@
+[gd_resource type="StyleBoxTexture" load_steps=2 format=3 uid="uid://dcs5hxqpep435"]
+
+[ext_resource type="Texture2D" uid="uid://di4spo4nibq8t" path="res://scenes/6_platformer/black_9slice.png" id="1_qkldd"]
+
+[resource]
+texture = ExtResource("1_qkldd")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0

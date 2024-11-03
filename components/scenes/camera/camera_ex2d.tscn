@@ -9,7 +9,8 @@ domain_warp_enabled = true
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6skn1"]
 size = Vector2(386, 243)
 
-[node name="Camera2DEx" type="Area2D"]
+[node name="CameraEx2D" type="Area2D"]
+process_mode = 3
 script = ExtResource("1_ye4th")
 noise = SubResource("FastNoiseLite_pru0c")
 
@@ -19,3 +20,4 @@ shape = SubResource("RectangleShape2D_6skn1")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 ignore_rotation = false
+process_callback = 0

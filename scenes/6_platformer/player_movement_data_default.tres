@@ -5,9 +5,14 @@
 [resource]
 script = ExtResource("1_wx7wo")
 speed = 100.0
-acceleration = 800.0
+acceleration_ground = 800.0
+acceleration_air = 10000.0
 friction_ground = 1000.0
 friction_air = 200.0
 jump_velocity = -300.0
-jump_short_velocity_divisor = 3.0
+jump_short_scale = 0.3333
+jump_air_scale = 0.8
+max_air_jumps = 1
 gravity_scale = 1.0
+dash_speed = 200.0
+dash_duration = 0.2

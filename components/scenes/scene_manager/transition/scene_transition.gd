@@ -42,4 +42,3 @@ func _init(resource_path: String) -> void:
 #	durations[param_name] = duration
 #	ease = ease
 #	trans = trans
-

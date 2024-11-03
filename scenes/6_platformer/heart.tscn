@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=3 uid="uid://c8p012doxqma6"]
+
+[ext_resource type="Texture2D" uid="uid://crafe84l3nggb" path="res://scenes/6_platformer/heart.png" id="1_qinn3"]
+[ext_resource type="Script" path="res://scenes/6_platformer/heart.gd" id="1_v8hnh"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_k0wx2"]
+radius = 5.09902
+
+[node name="Heart" type="Area2D" groups=["hearts"]]
+collision_mask = 2
+script = ExtResource("1_v8hnh")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_qinn3")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_k0wx2")

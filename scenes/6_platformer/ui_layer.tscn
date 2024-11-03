@@ -1,0 +1,44 @@
+[gd_scene load_steps=2 format=3 uid="uid://doq5kpn8hgll6"]
+
+[ext_resource type="PackedScene" uid="uid://br2e8jj85usfs" path="res://scenes/6_platformer/level_complete.tscn" id="1_rbccu"]
+
+[node name="UILayer" type="CanvasLayer"]
+layer = 2
+
+[node name="LevelComplete" parent="." instance=ExtResource("1_rbccu")]
+visible = false
+
+[node name="StartInColorRect" type="ColorRect" parent="."]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 0.313726)
+
+[node name="CenterContainer" type="CenterContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartInLabel" type="Label" parent="CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Start in 3"
+
+[node name="CenterContainer2" type="CenterContainer" parent="."]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 17.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+
+[node name="LevelTimeLabel" type="Label" parent="CenterContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+vertical_alignment = 1

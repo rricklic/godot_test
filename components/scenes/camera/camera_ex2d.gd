@@ -46,6 +46,7 @@ func _ready() -> void:
 	area_entered.connect(_detectTrauma)
 
 func add_target(node2D: Node2D) -> void:
+	node2D.tree_exiting.connect(remove_target.bind(node2D))
 	targets[node2D.get_instance_id()] = node2D
 
 func remove_target(node2D: Node2D) -> void:
@@ -103,8 +104,8 @@ func _handle_debug_movement(delta: float)	-> void:
 	camera.zoom += Vector2(z, z) * 5 * delta
 
 
-func _get_noise_from_seed(seed: int) -> float:
-	noise.seed = seed
+func _get_noise_from_seed(a_seed: int) -> float:
+	noise.seed = a_seed
 	return noise.get_noise_1d(time * noise_speed) # TODO: use Time.get_ticks_msec()?
 
 func _add_trauma(amount: float) -> void:

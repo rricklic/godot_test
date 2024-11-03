@@ -14,6 +14,8 @@ class_name PlayerMovementData extends Resource
 @export var jump_air_scale: float = 0.8
 @export var max_air_jumps: int = 1
 @export var gravity_scale: float = 1.0
+@export var dash_speed: float = 200.0
+@export var dash_duration: float = 0.2
 
 func get_jump_short_velocity() -> float:
 	return jump_velocity * jump_short_scale

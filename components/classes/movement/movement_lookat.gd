@@ -17,6 +17,3 @@ func _init(node: Node2D, target: Node2D) -> void:
 func update(delta: float) -> void:
 	MathUtil.rotate_to(_node, _target, SPEED_ROTATE, delta)
 	_node.global_position += Vector2(1, 0).rotated(_node.rotation) * SPEED * delta
-
-
-

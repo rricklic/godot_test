@@ -105,4 +105,3 @@ func _notification(what: int) -> void:
 # Called when CanvasItem has been requested to redraw (after queue_redraw()
 func _draw() -> void:
 	pass
-

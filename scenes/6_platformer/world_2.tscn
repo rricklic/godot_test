@@ -1,0 +1,142 @@
+[gd_scene load_steps=10 format=3 uid="uid://cc6miprkfxsc4"]
+
+[ext_resource type="Script" path="res://scenes/6_platformer/world_2.gd" id="1_yw67s"]
+[ext_resource type="PackedScene" uid="uid://c8p012doxqma6" path="res://scenes/6_platformer/heart.tscn" id="3_h0k6e"]
+[ext_resource type="PackedScene" uid="uid://c802rurlwmfo5" path="res://scenes/6_platformer/player.tscn" id="3_ruhjk"]
+[ext_resource type="PackedScene" uid="uid://b2gsmqqpmjflp" path="res://components/scenes/camera/camera_ex2d.tscn" id="4_dcgs6"]
+[ext_resource type="PackedScene" uid="uid://bo66pm343nwbt" path="res://scenes/6_platformer/tile_map.tscn" id="4_hj7ch"]
+[ext_resource type="PackedScene" uid="uid://br2e8jj85usfs" path="res://scenes/6_platformer/level_complete.tscn" id="6_o418v"]
+
+[sub_resource type="Animation" id="Animation_35utr"]
+length = 3.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UILayer/CenterContainer/StartInLabel:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": ["Start in 3"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UILayer/CenterContainer/StartInLabel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_m7085"]
+resource_name = "countdown"
+length = 3.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("UILayer/CenterContainer/StartInLabel:text")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0.25, 1.35, 2.25),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": ["Start in 3", "Start in 2", "Start in 1"]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("UILayer/CenterContainer/StartInLabel:visible")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 3.25),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_lpfx8"]
+_data = {
+"RESET": SubResource("Animation_35utr"),
+"countdown": SubResource("Animation_m7085")
+}
+
+[node name="World2" type="Node2D" groups=["world"]]
+script = ExtResource("1_yw67s")
+
+[node name="TileMap" parent="." instance=ExtResource("4_hj7ch")]
+position = Vector2(-32, 8)
+layer_0/name = "Base"
+layer_0/tile_data = PackedInt32Array(655360, 65536, 0, 720896, 65536, 2, 720897, 65536, 2, 720898, 65536, 2, 720899, 65536, 2, 720900, 65536, 2, 720901, 65536, 2, 720902, 65536, 2, 720903, 65536, 2, 720904, 65536, 2, 720905, 65536, 2, 720906, 65536, 2, 720907, 65536, 2, 720908, 65536, 2, 720909, 65536, 2, 720910, 65536, 2, 720911, 65536, 2, 720912, 65536, 2, 720913, 65536, 2, 720914, 65536, 2, 720915, 65536, 2, 720916, 65536, 2, 720917, 65536, 2, 720918, 65536, 2, 720919, 65536, 2, 720920, 65536, 2, 720921, 65536, 2, 720922, 65536, 2, 720923, 65536, 2, 720924, 65536, 2, 720925, 65536, 2, 720926, 65536, 2, 720927, 65536, 2, 655391, 65536, 0, 655390, 65536, 0, 655389, 65536, 0, 655388, 65536, 0, 655377, 65536, 0, 655376, 65536, 0, 655375, 65536, 0, 655372, 65536, 0, 655371, 65536, 0, 655370, 65536, 0, 655369, 65536, 0, 655368, 65536, 0, 655367, 65536, 0, 655366, 65536, 0, 720895, 65536, 0, 786431, 65536, 2, 655364, 65536, 0, 655363, 65536, 0, 655362, 65536, 0, 655361, 65536, 0, 655365, 65536, 0, 655373, 65536, 0, 655374, 65536, 0, 655378, 65536, 0, 655379, 65536, 0, 655380, 65536, 0, 655381, 65536, 0, 655382, 65536, 0, 655383, 65536, 0, 655384, 65536, 0, 655385, 65536, 0, 655386, 65536, 0, 655387, 65536, 0, 720894, 65536, 0, 720893, 65536, 0, 720892, 65536, 0, 720891, 65536, 0, 720890, 65536, 0, 786427, 65536, 2, 786428, 65536, 2, 786429, 65536, 2, 786430, 65536, 2, 655393, 65536, 0, 655392, 65536, 0, 655394, 65536, 0, 655395, 65536, 0, 655396, 65536, 0, 655397, 65536, 0, 655398, 65536, 0, 655399, 65536, 0, 655400, 65536, 0, 655401, 65536, 0, 655402, 65536, 0, 655403, 65536, 0, 655404, 65536, 0, 655405, 65536, 0, 655406, 65536, 0, 655407, 65536, 0, 655408, 65536, 0, 655409, 65536, 0, 655410, 65536, 0, 655411, 65536, 0, 655412, 65536, 0, 655413, 65536, 0, 655414, 65536, 0, 655415, 65536, 0, 655416, 65536, 0, 655417, 65536, 0, 655418, 65536, 0, 655419, 65536, 0, 655420, 65536, 0, 655421, 65536, 0, 720956, 65536, 2, 720955, 65536, 2, 720954, 65536, 2, 720953, 65536, 2, 720952, 65536, 2, 720951, 65536, 2, 720950, 65536, 2, 720949, 65536, 2, 720948, 65536, 2, 720947, 65536, 2, 720946, 65536, 2, 720945, 65536, 2, 720944, 65536, 2, 720943, 65536, 2, 720942, 65536, 2, 720941, 65536, 2, 720940, 65536, 2, 720939, 65536, 2, 720938, 65536, 2, 720937, 65536, 2, 720936, 65536, 2, 720935, 65536, 2, 720934, 65536, 2, 720933, 65536, 2, 720932, 65536, 2, 720931, 65536, 2, 720930, 65536, 2, 720929, 65536, 2, 720928, 65536, 2, 720957, 65536, 2, 720958, 65536, 2, 720959, 65536, 2, 720960, 65536, 2, 720961, 65536, 2, 720962, 65536, 2, 720963, 65536, 2, 720964, 65536, 2, 720965, 65536, 2, 720966, 65536, 2, 720967, 65536, 2, 720968, 65536, 2, 720969, 131072, 2, 655433, 131072, 0, 655432, 65536, 0, 655431, 65536, 0, 655430, 65536, 0, 655429, 65536, 0, 655428, 65536, 0, 655422, 65536, 0, 655423, 65536, 0, 655424, 65536, 0, 655425, 65536, 0, 655426, 65536, 0, 655427, 65536, 0, 786426, 65536, 2, 786425, 0, 2, 720889, 0, 0, 524277, 0, 3, 524278, 65536, 3, 524279, 131072, 3, 393202, 131072, 3, 393201, 65536, 3, 393200, 0, 3, 196597, 0, 3, 196598, 65536, 3, 196599, 131072, 3, -393232, 196608, 0, -327696, 196608, 1, -262160, 196608, 1, -196624, 196608, 1, -131088, 196608, 1, -65552, 196608, 1, -16, 196608, 2, -393229, 196608, 1, -327693, 196608, 1, -262157, 196608, 2, -458765, 196608, 1, -524301, 196608, 1, -589837, 196608, 1, -655373, 196608, 1, -720909, 196608, 0, -589844, 0, 3, -589843, 65536, 3, -589842, 131072, 3, -983050, 0, 3, -983049, 65536, 3, -983048, 131072, 3, -1245188, 0, 3, -1245187, 65536, 3, -1245186, 131072, 3, -1572868, 0, 3, -1572867, 65536, 3, -1572866, 131072, 3)
+layer_1/name = "Slopes"
+layer_1/tile_data = PackedInt32Array()
+
+[node name="Heart" parent="." instance=ExtResource("3_h0k6e")]
+position = Vector2(144, 152)
+
+[node name="Heart2" parent="." instance=ExtResource("3_h0k6e")]
+position = Vector2(168, 160)
+
+[node name="StartingPoint" type="Marker2D" parent="."]
+position = Vector2(-24, 152)
+
+[node name="Player" parent="." instance=ExtResource("3_ruhjk")]
+position = Vector2(-24, 111)
+
+[node name="CameraEx2D" parent="." instance=ExtResource("4_dcgs6")]
+position = Vector2(-23, 112)
+
+[node name="UILayer" type="CanvasLayer" parent="."]
+layer = 2
+
+[node name="LevelComplete" parent="UILayer" instance=ExtResource("6_o418v")]
+visible = false
+
+[node name="StartInColorRect" type="ColorRect" parent="UILayer"]
+unique_name_in_owner = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(1, 0, 0, 0.313726)
+
+[node name="CenterContainer" type="CenterContainer" parent="UILayer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="StartInLabel" type="Label" parent="UILayer/CenterContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Start in 3"
+
+[node name="CenterContainer2" type="CenterContainer" parent="UILayer"]
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 17.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+
+[node name="LevelTimeLabel" type="Label" parent="UILayer/CenterContainer2"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 0)
+layout_mode = 2
+size_flags_horizontal = 4
+vertical_alignment = 1
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+process_mode = 3
+libraries = {
+"": SubResource("AnimationLibrary_lpfx8")
+}
+autoplay = "countdown"

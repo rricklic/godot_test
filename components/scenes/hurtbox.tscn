@@ -3,6 +3,7 @@
 [ext_resource type="Script" path="res://components/scenes/hurtbox.gd" id="1_oquio"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_xvvhf"]
+size = Vector2(6, 16)
 
 [node name="Hurtbox" type="Area2D"]
 script = ExtResource("1_oquio")

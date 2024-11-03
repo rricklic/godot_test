@@ -1,5 +1,4 @@
-class_name CoolOff
-extends Object
+class_name CoolOff extends Object
 
 var time_cooloff: float
 var time_left: float

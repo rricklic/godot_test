@@ -1,0 +1,62 @@
+[gd_scene load_steps=6 format=3 uid="uid://dammmywn1wtic"]
+
+[ext_resource type="Script" path="res://scenes/6_platformer/platform.gd" id="1_2vs2t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_3ci3d"]
+size = Vector2(64, 8)
+
+[sub_resource type="Animation" id="Animation_0c6bl"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Platform:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_874m4"]
+resource_name = "move"
+length = 2.0
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Platform:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1, 2),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(100, 0), Vector2(0, 0)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_4kfdt"]
+_data = {
+"RESET": SubResource("Animation_0c6bl"),
+"move": SubResource("Animation_874m4")
+}
+
+[node name="Platform" type="AnimatableBody2D"]
+script = ExtResource("1_2vs2t")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(32, 4)
+shape = SubResource("RectangleShape2D_3ci3d")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+offset_right = 64.0
+offset_bottom = 8.0
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+root_node = NodePath("../..")
+libraries = {
+"": SubResource("AnimationLibrary_4kfdt")
+}
+autoplay = "move"

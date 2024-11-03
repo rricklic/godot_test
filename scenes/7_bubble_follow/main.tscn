@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://vfgaw3doptyw"]
+
+[ext_resource type="Script" path="res://scenes/7_bubble_follow/circle.gd" id="1_a2aph"]
+[ext_resource type="Texture2D" uid="uid://d0b5eno5m7n33" path="res://images/smile.png" id="2_neq5b"]
+
+[node name="Main" type="Node2D"]
+
+[node name="CircleFollow" type="Node2D" parent="."]
+script = ExtResource("1_a2aph")
+
+[node name="Sprite2D" type="Sprite2D" parent="CircleFollow"]
+visible = false
+scale = Vector2(0.2, 0.2)
+texture = ExtResource("2_neq5b")
